@@ -1,7 +1,8 @@
-package cl.jdomynyk.reign
+package cl.jdomynyk.reign.platform
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import cl.jdomynyk.reign.R
 
 class MainActivity : AppCompatActivity() {
 
