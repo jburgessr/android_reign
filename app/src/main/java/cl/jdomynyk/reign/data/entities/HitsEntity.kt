@@ -8,9 +8,9 @@ import com.google.gson.annotations.SerializedName
 data class HitsEntity(
     @PrimaryKey
     @SerializedName("story_id") val storyID: Long,
-    @SerializedName("story_title") val storyTitle: String,
-    @SerializedName("story_text") val storyText: String,
-    @SerializedName("title") val title: String,
-    @SerializedName("author") val author: String,
-    @SerializedName("created_at") val create: String
+    @SerializedName("story_title") val storyTitle: String?,
+    @SerializedName("story_text") val storyText: String?,
+    @SerializedName("title") val title: String?,
+    @SerializedName("author") val author: String?,
+    @SerializedName("created_at") val create: String?
 )
