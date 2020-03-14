@@ -11,8 +11,8 @@ class DataEntityMapper @Inject constructor() {
         if (hitsEntity != null) {
             entity = Hits(
                 hitsEntity.storyID,
-                hitsEntity.storyText,
                 hitsEntity.storyTitle,
+                hitsEntity.storyText,
                 hitsEntity.title,
                 hitsEntity.author,
                 hitsEntity.create
