@@ -6,13 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    android:background="@android:color/white"
+    android:background="@android:color/transparent"
     app:cardCornerRadius="7dp"
     app:cardElevation="5dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_list_item">
 
         <TextView
             android:id="@+id/tvDate"
@@ -39,7 +40,7 @@
             android:gravity="center_vertical"
             android:padding="10dp"
             android:text="@string/app_name"
-            android:textColor="@color/colorGray"
+            android:textColor="@color/tv_text_default_to_white"
             android:textSize="12sp" />
 
         <TextView
@@ -50,7 +51,7 @@
             android:gravity="center_vertical"
             android:padding="10dp"
             android:text="@string/app_name"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/tv_text_black_to_white"
             android:textSize="16sp" />
 
     </RelativeLayout>
