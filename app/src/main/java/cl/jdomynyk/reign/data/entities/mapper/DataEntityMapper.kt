@@ -1,33 +1,51 @@
 package cl.jdomynyk.reign.data.entities.mapper
 
-import cl.jdomynyk.reign.data.entities.HitsEntity
-import cl.jdomynyk.reign.domain.Hits
+import cl.jdomynyk.reign.data.entities.NewsEntity
+import cl.jdomynyk.reign.domain.model.News
 import javax.inject.Inject
 
 class DataEntityMapper @Inject constructor() {
 
-    fun transform(hitsEntity: HitsEntity?): Hits? {
-        var entity: Hits? = null
-        if (hitsEntity != null) {
-            entity = Hits(
-                hitsEntity.storyID,
-                hitsEntity.storyTitle,
-                hitsEntity.storyText,
-                hitsEntity.title,
-                hitsEntity.author,
-                hitsEntity.create
-            )
-        }
-        return entity
+    private fun transformToDomain(newsEntity: NewsEntity): News {
+        return News(
+            newsEntity.objectID,
+            newsEntity.storyTitle,
+            newsEntity.storyText,
+            newsEntity.title,
+            newsEntity.author,
+            newsEntity.createAt,
+            newsEntity.storyURL,
+            newsEntity.url
+        )
     }
 
-    fun transform(hitsLis: List<HitsEntity>): List<Hits> {
-        val list = mutableListOf<Hits>()
-        for (item in hitsLis) {
-            val entity = transform(item)
-            if (entity != null) {
-                list.add(entity)
-            }
+    private fun transformToEntity(news: News): NewsEntity {
+        return NewsEntity(
+            news.objectID,
+            news.storyTitle,
+            news.storyText,
+            news.title,
+            news.author,
+            news.createAt,
+            news.storyURL,
+            news.url
+        )
+    }
+
+    fun transformToDomain(newsList: List<NewsEntity>): List<News> {
+        val list = mutableListOf<News>()
+        for (item in newsList) {
+            val entity = transformToDomain(item)
+            list.add(entity)
+        }
+        return list
+    }
+
+    fun transformToEntity(newsList: List<News>): List<NewsEntity> {
+        val list = mutableListOf<NewsEntity>()
+        for (item in newsList) {
+            val entity = transformToEntity(item)
+            list.add(entity)
         }
         return list
     }

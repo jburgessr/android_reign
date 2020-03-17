@@ -1,17 +1,16 @@
 package cl.jdomynyk.reign.data.source.local
 
-import android.content.Context
 import androidx.room.Database
-import androidx.room.Room
 import androidx.room.RoomDatabase
-import cl.jdomynyk.reign.data.entities.HitsEntity
+import cl.jdomynyk.reign.data.entities.NewsEntity
+import cl.jdomynyk.reign.data.source.local.news.NewsDao
 
 @Database(
-    entities = [HitsEntity::class],
-    version = 1
+    entities = [NewsEntity::class],
+    version = 1, exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun getHitsDao(): HitsDao
+    abstract fun getHitsDao(): NewsDao
 
 //    companion object {
 //        @Volatile
