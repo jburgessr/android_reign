@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Reign</string>
+    <!-- ListActivity -->
+    <string name="iv_info">icon info</string>
+    <string name="iv_down">two arrows</string>
+    <string name="tv_title">Title</string>
+    <string name="tv_subtitle">%1$s - %2$s</string>
+    <string name="tv_empty_list">empty list</string>
+    <string name="tv_remember">swipe down and get new items</string>
+    <string name="msg_url_not_found">url not found</string>
+    <string name="msg_something_went_wrong">something went wrong, try again</string>
 </resources>
