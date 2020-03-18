@@ -14,7 +14,7 @@ class NewsRepositoryImpl(
     private val newsLocal: NewsLocal
 ) : NewsRepository {
     override fun getRemoteHits(handler: Handler<List<News>>) {
-        newsRemote.getHits(object : Handler<List<NewsEntity>> {
+        newsRemote.getNews(object : Handler<List<NewsEntity>> {
             override fun success(result: List<NewsEntity>) {
                 handler.success(dataEntityMapper.transformToDomain(result))
             }

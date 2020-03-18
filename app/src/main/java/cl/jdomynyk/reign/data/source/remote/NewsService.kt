@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface NewsService {
     @GET("v1/search_by_date?query=android")
-    fun getMovies(): Call<NewsReponse>
+    fun getNews(): Call<NewsReponse>
 }

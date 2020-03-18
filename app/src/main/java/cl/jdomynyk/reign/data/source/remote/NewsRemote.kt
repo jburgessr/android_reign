@@ -4,5 +4,5 @@ import cl.jdomynyk.reign.data.entities.NewsEntity
 import cl.jdomynyk.reign.domain.Handler
 
 interface NewsRemote {
-    fun getHits(handler: Handler<List<NewsEntity>>)
+    fun getNews(handler: Handler<List<NewsEntity>>)
 }
