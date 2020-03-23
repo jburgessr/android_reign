@@ -51,11 +51,11 @@ class AppModule {
     @Provides
     @Singleton
     internal fun provideRepository(
-        hitsLocalImpl: NewsLocalImpl,
-        hitsRemoteImpl: NewsRemoteImpl,
+        newsLocalImpl: NewsLocalImpl,
+        newsRemoteImpl: NewsRemoteImpl,
         dataEntityMapper: DataEntityMapper
     ): NewsRepository {
-        return NewsRepositoryImpl(dataEntityMapper, hitsRemoteImpl, hitsLocalImpl)
+        return NewsRepositoryImpl(dataEntityMapper, newsRemoteImpl, newsLocalImpl)
     }
 
     @Provides

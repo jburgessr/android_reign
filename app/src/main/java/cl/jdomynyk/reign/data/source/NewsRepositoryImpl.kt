@@ -13,8 +13,8 @@ class NewsRepositoryImpl(
     private val newsRemote: NewsRemote,
     private val newsLocal: NewsLocal
 ) : NewsRepository {
-    override fun getRemoteHits(handler: Handler<List<News>>) {
-        newsRemote.getHits(object : Handler<List<NewsEntity>> {
+    override fun getRemoteNews(handler: Handler<List<News>>) {
+        newsRemote.getNews(object : Handler<List<NewsEntity>> {
             override fun success(result: List<NewsEntity>) {
                 handler.success(dataEntityMapper.transformToDomain(result))
             }
@@ -26,15 +26,15 @@ class NewsRepositoryImpl(
         })
     }
 
-    override suspend fun getLocalHits(): List<News> {
+    override suspend fun getLocalNews(): List<News> {
         return dataEntityMapper.transformToDomain(newsLocal.getAll())
     }
 
-    override suspend fun saveHits(list: List<News>) {
+    override suspend fun saveNews(list: List<News>) {
         newsLocal.insertAllSync(dataEntityMapper.transformToEntity(list))
     }
 
-    override suspend fun hideHit(id: Long) {
+    override suspend fun hideNews(id: Long) {
         newsLocal.hide(id)
     }
 

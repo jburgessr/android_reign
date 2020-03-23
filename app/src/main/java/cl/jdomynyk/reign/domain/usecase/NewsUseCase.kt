@@ -7,7 +7,7 @@ import cl.jdomynyk.reign.domain.Handler
 class NewsUseCase(private val repository: NewsRepository) {
 
     fun findRemote(handler: Handler<List<News>>) {
-        repository.getRemoteHits(object : Handler<List<News>> {
+        repository.getRemoteNews(object : Handler<List<News>> {
             override fun success(result: List<News>) {
                 handler.success(result)
             }
@@ -20,14 +20,14 @@ class NewsUseCase(private val repository: NewsRepository) {
     }
 
     suspend fun getAll(): List<News> {
-        return repository.getLocalHits()
+        return repository.getLocalNews()
     }
 
     suspend fun blockedNews(id: Long) {
-        repository.hideHit(id)
+        repository.hideNews(id)
     }
 
     suspend fun saveAllNews(list: List<News>) {
-        repository.saveHits(list)
+        repository.saveNews(list)
     }
 }

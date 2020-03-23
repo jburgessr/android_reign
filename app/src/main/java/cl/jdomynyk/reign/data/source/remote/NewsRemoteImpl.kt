@@ -11,8 +11,8 @@ import retrofit2.Response
 import java.net.SocketTimeoutException
 
 class NewsRemoteImpl(private val newsService: NewsService) : NewsRemote {
-    override fun getHits(handler: Handler<List<NewsEntity>>) {
-        newsService.getMovies().enqueue(object : Callback<NewsReponse> {
+    override fun getNews(handler: Handler<List<NewsEntity>>) {
+        newsService.getNews().enqueue(object : Callback<NewsReponse> {
             override fun onResponse(
                 call: Call<NewsReponse>,
                 response: Response<NewsReponse>
