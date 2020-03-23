@@ -4,11 +4,11 @@ import cl.jdomynyk.reign.domain.Handler
 import cl.jdomynyk.reign.domain.model.News
 
 interface NewsRepository {
-    fun getRemoteHits(handler: Handler<List<News>>)
+    fun getRemoteNews(handler: Handler<List<News>>)
 
-    suspend fun getLocalHits(): List<News>
+    suspend fun getLocalNews(): List<News>
 
-    suspend fun saveHits(list: List<News>)
+    suspend fun saveNews(list: List<News>)
 
-    suspend fun hideHit(id: Long)
+    suspend fun hideNews(id: Long)
 }

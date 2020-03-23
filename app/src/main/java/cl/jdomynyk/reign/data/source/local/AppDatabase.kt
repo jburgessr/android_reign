@@ -10,7 +10,7 @@ import cl.jdomynyk.reign.data.source.local.news.NewsDao
     version = 1, exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun getHitsDao(): NewsDao
+    abstract fun getNewsDao(): NewsDao
 
 //    companion object {
 //        @Volatile
