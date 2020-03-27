@@ -8,18 +8,13 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 
-abstract class BasePresenter<View> : ViewModel(), CoroutineScope {
+abstract class BasePresenter<View>(private var view: View) : ViewModel(), CoroutineScope {
 
-    private var view: View? = null
     private lateinit var context: Context
 
     private val job = SupervisorJob()
     final override val coroutineContext = job + Dispatchers.Main
     private val scope = CoroutineScope(coroutineContext)
-
-    fun attachView(view: View) {
-        this.view = view
-    }
 
     fun setContext(context: Context) {
         this.context = context
@@ -40,6 +35,5 @@ abstract class BasePresenter<View> : ViewModel(), CoroutineScope {
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     private fun onViewDestroyed() {
         job.cancel()
-        view = null
     }
 }

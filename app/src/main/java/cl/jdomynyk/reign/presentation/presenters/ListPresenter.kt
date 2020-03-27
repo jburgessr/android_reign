@@ -11,8 +11,9 @@ import kotlinx.coroutines.*
 
 class ListPresenter(
     private val newsUseCase: NewsUseCase,
-    private val formatter: Formatter
-) : BasePresenter<ListView>() {
+    private val formatter: Formatter,
+    view: ListView
+) : BasePresenter<ListView>(view) {
     private var list: MutableList<News> = emptyList<News>().toMutableList()
 
     fun viewReady() {
