@@ -2,10 +2,12 @@ package cl.jdomynyk.reign.platform.views.list
 
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cl.jdomynyk.reign.R
+import cl.jdomynyk.reign.data.exception.ServiceTimeOut
 import cl.jdomynyk.reign.platform.navigation.gotToDetail
 import cl.jdomynyk.reign.platform.views.list.adapter.NewsAdapter
 import cl.jdomynyk.reign.presentation.ListView
@@ -13,10 +15,7 @@ import cl.jdomynyk.reign.presentation.presenters.ListPresenter
 import com.google.android.material.snackbar.Snackbar
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_list.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
 import javax.inject.Inject
-import kotlin.coroutines.CoroutineContext
 
 class ListActivity : DaggerAppCompatActivity(), ListView {
 
@@ -32,6 +31,12 @@ class ListActivity : DaggerAppCompatActivity(), ListView {
         setUpRecycleView()
 
         setUpRefreshView()
+
+        initObserverList()
+
+        initObserverProgress()
+
+        initObserverError()
 
         informPresenterViewIsReady()
     }
@@ -55,32 +60,62 @@ class ListActivity : DaggerAppCompatActivity(), ListView {
         swipeRefreshLayout.setOnRefreshListener { presenter.getRemoteNews() }
     }
 
+    private fun initObserverList() {
+        presenter.news.observe(this, Observer { list ->
+            if (list != null) {
+                showList()
+                refreshList()
+                hideEmpty()
+            } else {
+                hideList()
+                showEmpty()
+            }
+        })
+    }
+
+    private fun initObserverProgress() {
+        presenter.isLoading.observe(this, Observer { isProgress ->
+            swipeRefreshLayout.isRefreshing = isProgress
+        })
+    }
+
+    private fun initObserverError() {
+        presenter.error.observe(this, Observer { exception ->
+            if (exception is ServiceTimeOut) {
+                showSnackMessage(getString(R.string.msg_timeout))
+            } else {
+                showSnackMessage(getString(R.string.msg_something_went_wrong))
+            }
+        })
+    }
+
     private fun informPresenterViewIsReady() {
         presenter.viewReady()
     }
 
-    override fun showEmpty() {
+    private fun showEmpty() {
         llError.visibility = View.VISIBLE
     }
 
-    override fun hideEmpty() {
+    private fun hideEmpty() {
         llError.visibility = View.GONE
     }
 
-    override fun showList() {
+    private fun showList() {
         recyclerView.visibility = View.VISIBLE
     }
 
-    override fun hideList() {
+    private fun hideList() {
         recyclerView.visibility = View.GONE
     }
 
-    override fun refreshList() {
+    private fun refreshList() {
         adapter.notifyDataSetChanged()
     }
 
-    override fun cancelRefreshDialog() {
-        swipeRefreshLayout.isRefreshing = false
+    override fun showMessageUrlNotFound() {
+        Snackbar.make(relativeLayout, getString(R.string.msg_url_not_found), Snackbar.LENGTH_LONG)
+            .show()
     }
 
     override fun navigateToDetailScreen(url: String) {

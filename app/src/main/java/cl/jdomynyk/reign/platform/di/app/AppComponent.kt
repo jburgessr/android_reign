@@ -1,7 +1,6 @@
 package cl.jdomynyk.reign.platform.di.app;
 
 import android.app.Application
-import cl.jdomynyk.reign.data.source.local.AppDatabase
 import cl.jdomynyk.reign.platform.ReignApp
 import cl.jdomynyk.reign.platform.di.ActivityBuilder
 import dagger.BindsInstance
@@ -16,8 +15,8 @@ import javax.inject.Singleton
     modules = [
         AndroidSupportInjectionModule::class,
         AppModule::class,
-        ActivityBuilder::class],
-    dependencies = [AppDatabase::class]
+        ActivityBuilder::class
+    ]
 )
 interface AppComponent : AndroidInjector<ReignApp> {
 
@@ -29,8 +28,6 @@ interface AppComponent : AndroidInjector<ReignApp> {
         fun application(application: Application): Builder
 
         fun build(): AppComponent
-
-        fun database(appDatabase: AppDatabase): Builder
     }
 
 }
