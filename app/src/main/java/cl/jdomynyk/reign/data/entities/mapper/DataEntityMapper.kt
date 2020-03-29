@@ -32,11 +32,13 @@ class DataEntityMapper @Inject constructor() {
         )
     }
 
-    fun transformToDomain(newsList: List<NewsEntity>): List<News> {
+    fun transformToDomain(newsList: List<NewsEntity>?): List<News> {
         val list = mutableListOf<News>()
-        for (item in newsList) {
-            val entity = transformToDomain(item)
-            list.add(entity)
+        if (newsList != null) {
+            for (item in newsList) {
+                val entity = transformToDomain(item)
+                list.add(entity)
+            }
         }
         return list
     }

@@ -9,7 +9,6 @@ class News(
     val createAt: String,
     val storyURL: String?,
     val url: String?
-
 ) {
     override fun toString(): String {
         return "News(objectID=$objectID, storyTitle=$storyTitle, storyText=$storyText, title=$title, author=$author, create=$createAt, storyURL=$storyURL, url=$url)"

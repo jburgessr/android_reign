@@ -62,9 +62,9 @@ class ListActivity : DaggerAppCompatActivity(), ListView {
 
     private fun initObserverList() {
         presenter.news.observe(this, Observer { list ->
-            if (list != null) {
+            refreshList()
+            if (list != null && list.isNotEmpty()) {
                 showList()
-                refreshList()
                 hideEmpty()
             } else {
                 hideList()
@@ -113,6 +113,10 @@ class ListActivity : DaggerAppCompatActivity(), ListView {
         adapter.notifyDataSetChanged()
     }
 
+    private fun showSnackMessage(message: String) {
+        Snackbar.make(relativeLayout, message, Snackbar.LENGTH_LONG).show()
+    }
+
     override fun showMessageUrlNotFound() {
         Snackbar.make(relativeLayout, getString(R.string.msg_url_not_found), Snackbar.LENGTH_LONG)
             .show()
@@ -120,9 +124,5 @@ class ListActivity : DaggerAppCompatActivity(), ListView {
 
     override fun navigateToDetailScreen(url: String) {
         gotToDetail(url)
-    }
-
-    override fun showSnackMessage(message: String) {
-        Snackbar.make(relativeLayout, message, Snackbar.LENGTH_LONG).show()
     }
 }
