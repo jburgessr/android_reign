@@ -3,7 +3,8 @@
 Reign app, es una aplicación para obtener las ultimas noticias de hackernews (puedes ver en [HN Algolia](https://hn.algolia.com/api)).
 
 Esta construida con las siguientes caracteristicas:
-  - Clean architecture
+  - Clean architecture and ViewModel LifeCycle
+  - Mockito
   - Kotlin
   - Dagger
   - Retrofit para consumir el servicio.
