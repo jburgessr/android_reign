@@ -4,6 +4,8 @@ import cl.jdomynyk.reign.data.exception.ServiceThrowable
 import cl.jdomynyk.reign.data.source.NewsRepositoryImpl
 import cl.jdomynyk.reign.domain.RemoteResult
 import cl.jdomynyk.reign.news
+import cl.jdomynyk.reign.serviceThrowable
+import cl.jdomynyk.reign.serviceTimeout
 
 import kotlinx.coroutines.runBlocking
 
@@ -19,9 +21,6 @@ class NewsUseCaseTest {
 
     private lateinit var useCase: NewsUseCase
     private val mockRepo: NewsRepositoryImpl = mock()
-
-    private val serviceThrowable: ServiceThrowable = mock()
-    private val serviceTimeout: ServiceThrowable = mock()
 
     @Before
     fun setUp() {
