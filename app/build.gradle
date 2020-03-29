@@ -39,12 +39,16 @@ dependencies {
     testImplementation "junit:junit:$test_junit_version"
     androidTestImplementation "androidx.test.ext:junit:$test_ext_junit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$test_espresso_version"
+
+    // assertj
+    testImplementation "org.assertj:assertj-core:$assertjCore_version"
+
     // mockito
-    testImplementation "org.mockito:mockito-core:$test_mockito_version"
-    testImplementation "org.mockito:mockito-inline:$test_mockito_version"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlin_version"
+    testImplementation "org.mockito:mockito-inline:$mockitoInline_version"
 
-    androidTestImplementation "org.mockito:mockito-android:$mockito_version"
-
+    // arch
+    testImplementation "androidx.arch.core:core-testing:$lifeCycle_version"
 
     // design
     implementation "com.android.support:design:$design_version"

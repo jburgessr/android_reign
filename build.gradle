@@ -8,6 +8,14 @@ buildscript {
     ext.test_junit_version = '4.12'
     ext.test_ext_junit_version = '1.1.0'
     ext.test_espresso_version = '3.2.0'
+    ext.test_espresso_version = '3.2.0'
+
+
+    ext.assertjCore_version = "3.14.0"
+    ext.mockitoKotlin_version = "2.1.0"
+    ext.mockitoInline_version = "3.2.4"
+    ext.lifeCycle_version = "2.1.0"
+
 
     ext.test_mockito_version = '3.2.4'
     ext.mockito_version = '2.15.0'
