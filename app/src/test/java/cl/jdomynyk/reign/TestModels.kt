@@ -1,8 +1,14 @@
 package cl.jdomynyk.reign
 
 import cl.jdomynyk.reign.data.entities.NewsEntity
+import cl.jdomynyk.reign.data.exception.ServiceThrowable
 import cl.jdomynyk.reign.data.source.remote.response.NewsReponse
 import cl.jdomynyk.reign.domain.model.News
+import com.nhaarman.mockitokotlin2.mock
+
+
+val serviceThrowable: ServiceThrowable = mock()
+val serviceTimeout: ServiceThrowable = mock()
 
 val remote = NewsReponse(
     listOf(
