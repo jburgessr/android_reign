@@ -40,6 +40,15 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:$test_ext_junit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$test_espresso_version"
 
+    // assertj
+    testImplementation "org.assertj:assertj-core:$assertjCore_version"
+
+    // mockito
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlin_version"
+    testImplementation "org.mockito:mockito-inline:$mockitoInline_version"
+
+    // arch
+    testImplementation "androidx.arch.core:core-testing:$lifeCycle_version"
 
     // design
     implementation "com.android.support:design:$design_version"
@@ -50,6 +59,7 @@ dependencies {
     // retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
 
     // gson
     implementation "com.google.code.gson:gson:$gson_version"
@@ -70,6 +80,7 @@ dependencies {
     // coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+    implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
 
     // room
     implementation "androidx.room:room-runtime:$room_version"

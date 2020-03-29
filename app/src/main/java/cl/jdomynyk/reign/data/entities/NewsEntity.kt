@@ -16,4 +16,8 @@ data class NewsEntity(
     @SerializedName("story_url") val storyURL: String?,
     @SerializedName("url") val url: String?,
     val blocked: Int = 0
-)
+) {
+    override fun toString(): String {
+        return "NewsEntity(objectID=$objectID, storyTitle=$storyTitle, storyText=$storyText, title=$title, author='$author', createAt='$createAt', storyURL=$storyURL, url=$url, blocked=$blocked)"
+    }
+}

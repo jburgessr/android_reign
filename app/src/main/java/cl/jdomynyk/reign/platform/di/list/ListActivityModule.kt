@@ -16,10 +16,7 @@ class ListActivityModule {
         activity: ListActivity, newsUseCase: NewsUseCase,
         formatter: Formatter
     ): ListPresenter {
-        val presenter = ListPresenter(newsUseCase, formatter)
-        presenter.attachView(activity)
-        presenter.setContext(activity)
-        return presenter
+        return ListPresenter(newsUseCase, formatter, activity)
     }
 
 }

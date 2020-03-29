@@ -7,7 +7,8 @@
     <string name="tv_title">Titúlo</string>
     <string name="tv_subtitle">%1$s - %2$s</string>
     <string name="tv_empty_list">sin registros</string>
-    <string name="tv_remember">desliza hacia abajo\nobtén nuevos items</string>
+    <string name="tv_remember">desliza hacia abajo\ny obtén nuevos items</string>
     <string name="msg_url_not_found">URL no encontrada</string>
     <string name="msg_something_went_wrong">algo salió mal, intenta de nuevo</string>
+    <string name="msg_timeout">el tiempo de espera expiró, intente nuevamente</string>
 </resources>

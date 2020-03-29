@@ -8,11 +8,22 @@ buildscript {
     ext.test_junit_version = '4.12'
     ext.test_ext_junit_version = '1.1.0'
     ext.test_espresso_version = '3.2.0'
+    ext.test_espresso_version = '3.2.0'
 
-    ext.kotlin_version = '1.3.70'
+
+    ext.assertjCore_version = "3.14.0"
+    ext.mockitoKotlin_version = "2.1.0"
+    ext.mockitoInline_version = "3.2.4"
+    ext.lifeCycle_version = "2.1.0"
+
+
+    ext.test_mockito_version = '3.2.4'
+    ext.mockito_version = '2.15.0'
+
+    ext.kotlin_version = '1.3.71'
     ext.lifecycle_version = '2.2.0'
     ext.legacy_version = '1.0.0'
-    ext.room_version = '2.2.4'
+    ext.room_version = '2.2.5'
     ext.coroutines_version = '1.3.0'
     ext.dagger_version = '2.25.2'
     ext.dagger_support_version = '2.16'
